@@ -11,7 +11,7 @@ int main(void)
 {
 	char letter = 'a';
 
-	while (letter <= 123)
+	while (letter <= 122)
 	{
 		if (letter == 'e' || letter == 'q')
 		{
