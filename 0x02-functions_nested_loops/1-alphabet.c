@@ -14,10 +14,9 @@ void print_alphabet(void)
 	while (letter <= 122)
 	{
 		_putchar(letter);
-		i++;
+		letter++;
 	}
 
 	_putchar('\n');
 
-	return (0);
 }
