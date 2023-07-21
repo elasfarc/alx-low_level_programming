@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	fizz_buzz(1, 100);
+	fizz_buzz();
 	return (0);
 }
 
@@ -20,17 +20,17 @@ int main(void)
  *	       if number is multiple for both 3 && 5 print "FizzBuzz",
  *	       otherwise print the number as it is.
  *
- * @n1: starting number
- * @n2: ending number
+ * @n1  starting number
+ * @n2  ending number
  *
  * Return: always void
  */
 
-void fizz_buzz(int n1, int n2)
+void fizz_buzz(void)
 {
 	short int i;
 
-	for (i = n1; i <= n2; i++)
+	for (i = 1; i <= 100; i++)
 	{
 		if (i % 3 == 0 && i % 5 == 0)
 			printf("FizzBuzz");
@@ -43,7 +43,7 @@ void fizz_buzz(int n1, int n2)
 
 		putchar(' ');
 
-		if (i == n2)
+		if (i == 100)
 			putchar('\n');
 	}
 }
