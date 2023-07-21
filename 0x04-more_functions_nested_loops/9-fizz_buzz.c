@@ -1,38 +1,21 @@
 #include <stdio.h>
 
-void fizz_buzz(void);
-
 /**
- * main - check the code
- *
- * Return: Always 0.
+ * main - Fizz Buzz Test
+ * Description: print Fizz for multiples of 3
+ * and Buzz for multiples of 5
+ * and FizzBuzz for multiples of both
+ * Return: 0 (success)
  */
 int main(void)
 {
-	fizz_buzz();
-	return (0);
-}
+	int i;
 
-
-/**
- * fizz_buzz - print numbers from @n1 till @n2 followed by a nwe line
- *	       if number is multiple of 3 print "Fizz",
- *	       if number is multiple of 5 print "Buzz",
- *	       if number is multiple for both 3 && 5 print "FizzBuzz",
- *	       otherwise print the number as it is.
- *
- * @n1  starting number
- * @n2  ending number
- *
- * Return: always void
- */
-
-void fizz_buzz(void)
-{
-	short int i;
-
-	for (i = 1; i <= 100; i++)
+	i = 1;
+	printf("%d", i);
+	for (i = 2; i <= 100; i++)
 	{
+		printf(" ");
 		if (i % 3 == 0 || i % 5 == 0)
 		{
 			if (i % 3 == 0)
@@ -44,10 +27,8 @@ void fizz_buzz(void)
 		{
 			printf("%d", i);
 		}
-
-		putchar(' ');
-
-		if (i == 100)
-			putchar('\n');
 	}
+	printf("\n");
+	return (0);
 }
+
