@@ -1,10 +1,9 @@
 #include "main.h"
 
 /**
- * _puts - prints a string followed by a newline to std output
- * @str: string to be pritnted
- *
- * Return: void
+ * _puts - prints a string, followed by a new line
+ * to stdout
+ * @str: string to be processed
  */
 void _puts(char *str)
 {
@@ -14,4 +13,3 @@ void _puts(char *str)
 		_putchar(str[i]);
 	_putchar('\n');
 }
-
