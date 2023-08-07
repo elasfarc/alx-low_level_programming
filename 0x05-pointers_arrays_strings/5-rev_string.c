@@ -1,26 +1,27 @@
 /**
- * rev_string - a function that reverses a string.
+ * rev_string - reverses a string
  * @s: string to be reversed
  *
- * Return: void
+ * Return: always void
  */
-
 void rev_string(char *s)
 {
-	short int i, len;
+	int lst_idx = 0, i, j;
 	char temp;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	len = i;
+	while (*(s + lst_idx) != '\0')
+		lst_idx++;
 
-	for (i = 0; i < (len - 1) / 2; i++)
+	i = lst_idx - 1;
+	j = 0;
+	while (j < (i / 2))
 	{
-		temp = s[i];
-		s[i] = s[len - 1];
-		s[len - 1] = temp;
-		len--;
+		temp = *(s + i - j);
+		*(s + i - j) = *(s + j);
+		*(s + j) = temp;
+		j++;
 	}
+
+	printf("bye-bye\n");
 }
 
