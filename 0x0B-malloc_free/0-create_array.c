@@ -12,7 +12,11 @@ char *init_char_arr(char *, unsigned int, char);
 
 char *create_array(unsigned int size, char c)
 {
-	return (size == 0
+	char *arr;
+
+	arr = (char *) malloc(size * sizeof(char));
+
+	return (size == 0 || arr == NULL
 		? NULL
 		: init_char_arr((char *) malloc(size * sizeof(char)), size, c));
 }
