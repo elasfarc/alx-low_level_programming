@@ -6,3 +6,4 @@ void _puts(char *);
 void print_rev(char *);
 void rev_string(char *);
 char *_strcpy(char *, char *);
+int _atoi(char *);
