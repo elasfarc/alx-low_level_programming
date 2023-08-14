@@ -10,9 +10,9 @@ int power(int, int);
 
 int _atoi(char *s)
 {
-	int i = 0, sign_counter = 0,
-		number = 0, first_digit_idx;
-	short is_first_digit = 0, is_digit, ci, number_of_digits;
+	short i = 0, sign = 1, first_digit_idx,
+	      is_first_digit = 0, is_digit, ci, number_of_digits;
+	unsigned int number = 0;
 
 	while (s[i] != '\0')
 	{
@@ -27,10 +27,8 @@ int _atoi(char *s)
 			is_first_digit = 1;
 		}
 
-		if (s[i] == '+')
-			sign_counter++;
-		else if (s[i] == '-')
-			sign_counter--;
+		if (s[i] == '-')
+			sign *= -1;
 
 		i++;
 	}
@@ -46,7 +44,7 @@ int _atoi(char *s)
 		       first_digit_idx++;
 		}
 
-	return (sign_counter >= 0 ? number : number * -1);
+	return (number * sign);
 }
 
 
