@@ -2,7 +2,7 @@
 #include <stddef.h>
 #include "dog.h"
 
-char *_strcpy(char *);
+char *_strcpy(char *, char *);
 int _strlen(char *);
 
 /**
@@ -16,25 +16,21 @@ int _strlen(char *);
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	char *name_cp, *owner_cp;
 	dog_t *dog;
-
-	name_cp = _strcpy(name);
-	owner_cp = _strcpy(owner);
 
 
 	dog = malloc(sizeof(dog_t));
 	if (dog == NULL)
 		return (NULL);
 
-	dog->name = malloc(sizeof(char) * (_strlen(name + 1)));
+	dog->name = malloc(sizeof(char) * (_strlen((name) + 1)));
 	if (dog->name == NULL)
 	{
 		free(dog->name);
 		free(dog);
 		return (NULL);
 	}
-	dog->name = name_cp;
+	dog->name = _strcpy(name, dog->name);
 
 	dog->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
 	if (dog->owner == NULL)
@@ -44,7 +40,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(dog);
 		return (NULL);
 	}
-	dog->owner = owner_cp;
+	dog->owner = _strcpy(owner, dog->owner);
 
 	dog->age = age;
 
@@ -71,24 +67,16 @@ int _strlen(char *s)
 /**
  * _strcpy - copy a strinig
  * @s: string to be copied
+ * @copied: str to be copied
  *
  * Return: a pointer to the newly copied string
  */
 
-char *_strcpy(char *s)
+char *_strcpy(char *s, char *copied)
 {
 	short i = 0, len;
-	char *copied;
 
 	len = _strlen(s);
-
-	copied = malloc((sizeof(char) * len) + 1);
-
-	if (copied == NULL)
-	{
-		free(copied);
-		return (NULL);
-	}
 
 	while (i < len)
 	{
