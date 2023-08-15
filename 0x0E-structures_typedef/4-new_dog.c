@@ -54,7 +54,10 @@ char *_strcpy(char *s)
 	copied = malloc((sizeof(char) * len) + 1);
 
 	if (copied == NULL)
+	{
+		free(copied);
 		return (NULL);
+	}
 
 	while (i < len)
 	{
