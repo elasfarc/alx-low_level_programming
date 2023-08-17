@@ -2,5 +2,6 @@
 #define _FUNCTION_POINTERS_
 
 void print_name(char *, void(*)(char *));
+void array_iterator(int *, size_t, void(*)(int));
 
 #endif
