@@ -18,13 +18,13 @@ void print_all(const char * const format, ...)
 	short i = 0;
 	char *str, c;
 
-	va_start(ap, format);
-
 	if (format == NULL)
 	{
 		printf("\n");
 		return;
 	}
+	va_start(ap, format);
+
 	while (*(format + i) != '\0')
 	{
 		c = format[i];
@@ -52,6 +52,7 @@ void print_all(const char * const format, ...)
 			printf(" ,");
 		i++;
 	}
+	va_end(ap);
 	printf("\n");
 }
 
