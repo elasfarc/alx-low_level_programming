@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "lists.h"
-#include <stdio.h>
 
 unsigned int _strlen(const char *s);
 
@@ -22,8 +21,11 @@ list_t *add_node(list_t **head, const char *str)
 	node_str = strdup(str);
 
 	if (!head || !node || !node_str)
+	{
+		if (!node_str)
+			free(node);
 		return (NULL);
-
+	}
 	node->str = node_str;
 	node->len = _strlen(node_str);
 	node->next = *head;
