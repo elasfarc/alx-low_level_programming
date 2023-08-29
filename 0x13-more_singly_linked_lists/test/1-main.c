@@ -1,12 +1,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include <stddef.h>
 #include "lists.h"
 
 /**
  * main - check the code
- * 
+ *
  * Return: Always 0.
  */
 int main(void)
@@ -26,7 +25,7 @@ int main(void)
     new->n = 9;
     new->next = head;
     head = new;
-    n = print_listint(NULL);
+    n = listint_len(head);
     printf("-> %lu elements\n", n);
     free(new);
     return (0);
