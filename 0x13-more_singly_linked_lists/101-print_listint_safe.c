@@ -33,7 +33,7 @@ size_t print_listint_safe(const listint_t *head)
 			if (iner == outer)
 			{
 				printf("-> [%p] %d\n", (void *)outer, outer->n);
-				exit(98);
+				return (steps - 1);
 			}
 			iner = iner->next;
 		}
