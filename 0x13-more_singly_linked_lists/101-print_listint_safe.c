@@ -17,6 +17,8 @@ size_t print_listint_safe(const listint_t *head)
 	const listint_t *outer, *iner, *safe;
 	size_t steps = 0, i;
 
+	if (!head)
+		exit(98);
 
 	safe = head;
 	outer = head;
