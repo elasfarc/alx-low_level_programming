@@ -2,6 +2,7 @@
 #include "main.h"
 
 #define FIRST_ONE_BIT(x) ((x) > 0 ? (x) - 1 : 0)
+#define IS_NEGATIVE(n) ((long int)(n) < 0)
 
 unsigned int get_bit(unsigned long int n, unsigned int i);
 
@@ -16,11 +17,16 @@ void print_binary(unsigned long int n)
 	size_t bits = sizeof(unsigned long int) * 4;
 	int i, most_left_zero;
 
-	for (i = bits - 1; i >= 0; i--)
+	if (IS_NEGATIVE(n))
+		most_left_zero = bits;
+	else
 	{
-		if (get_bit(n, i))
-			break;
-		most_left_zero = i;
+		for (i = bits - 1; i >= 0; i--)
+		{
+			if (get_bit(n, i))
+				break;
+			most_left_zero = i;
+		}
 	}
 
 	i = FIRST_ONE_BIT(most_left_zero);
