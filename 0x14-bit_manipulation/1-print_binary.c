@@ -1,8 +1,9 @@
 #include <stddef.h>
+#include <limits.h>
 #include "main.h"
 
 #define FIRST_ONE_BIT(x) ((x) > 0 ? (x) - 1 : 0)
-#define IS_NEGATIVE(n) ((long int)(n) < 0)
+#define IS_NEGATIVE(n) ((long int)(n) < 0 || (n == UINT_MAX))
 
 unsigned int get_bit(unsigned long int n, unsigned int i);
 
