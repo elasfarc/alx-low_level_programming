@@ -15,7 +15,7 @@ int get_bit(unsigned long int n, unsigned int i);
  */
 void print_binary(unsigned long int n)
 {
-	size_t bits = sizeof(unsigned long int) * 4;
+	size_t bits = sizeof(n) * 8;
 	int i, most_left_zero;
 
 	if (IS_NEGATIVE(n))
