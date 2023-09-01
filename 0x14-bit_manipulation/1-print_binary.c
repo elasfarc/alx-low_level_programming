@@ -3,7 +3,7 @@
 #include "main.h"
 
 #define FIRST_ONE_BIT(x) ((x) > 0 ? (x) - 1 : 0)
-#define IS_NEGATIVE(n) ((long int)(n) < 0 || (n == UINT_MAX))
+#define IS_NEGATIVE(n) ((long int)(n) < 0 || (UINT_MAX - n <= 0))
 
 unsigned int get_bit(unsigned long int n, unsigned int i);
 
