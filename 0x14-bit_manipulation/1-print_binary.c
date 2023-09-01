@@ -5,7 +5,7 @@
 #define FIRST_ONE_BIT(x) ((x) > 0 ? (x) - 1 : 0)
 #define IS_NEGATIVE(n) ((long int)(n) < 0 || (UINT_MAX - n <= 0))
 
-unsigned int get_bit(unsigned long int n, unsigned int i);
+int get_bit(unsigned long int n, unsigned int i);
 
 /**
  * print_binary - prints the binary representation of a number.
@@ -43,7 +43,8 @@ void print_binary(unsigned long int n)
 * Return: 1 if the bit at the given index is 1, 0 otherwise.
 */
 
-unsigned int get_bit(unsigned long int n, unsigned int i)
+int get_bit(unsigned long int n, unsigned int i)
 {
 	return ((n & (1 << i)) ? 1 : 0);
 }
+
