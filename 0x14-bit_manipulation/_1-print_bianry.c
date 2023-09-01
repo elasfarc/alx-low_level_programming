@@ -1,5 +1,9 @@
 #include <stddef.h>
+#include <limits.h>
 #include "main.h"
+
+#define FIRST_ONE_BIT(x) ((x) > 0 ? (x) - 1 : 0)
+#define IS_NEGATIVE(n) ((long int)(n) < 0 || (UINT_MAX - n <= 0))
 
 int get_bit(unsigned long int n, unsigned int i);
 
@@ -11,22 +15,24 @@ int get_bit(unsigned long int n, unsigned int i);
  */
 void print_binary(unsigned long int n)
 {
-	size_t bits = (sizeof(n) * 8) - 1;
-	unsigned int bit, is_first_one_bit = 0;
-	int i;
+	size_t bits = sizeof(n) * 8;
+	int i, most_left_zero;
 
-	for (i = bits; i >= 0; i--)
+	if (IS_NEGATIVE(n))
+		most_left_zero = bits;
+	else
 	{
-		bit = get_bit(n, i);
-
-		if (!is_first_one_bit && bit)
-			is_first_one_bit = 1;
-		if (is_first_one_bit)
-			_putchar(bit + '0');
+		for (i = bits - 1; i >= 0; i--)
+		{
+			if (get_bit(n, i))
+				break;
+			most_left_zero = i;
+		}
 	}
 
-	if(!is_first_one_bit)
-		_putchar('0');
+	i = FIRST_ONE_BIT(most_left_zero);
+	for (; i >= 0; i--)
+		_putchar(get_bit(n, i) + '0');
 }
 
 /**
@@ -39,6 +45,6 @@ void print_binary(unsigned long int n)
 
 int get_bit(unsigned long int n, unsigned int i)
 {
-	return ((n & (1UL << i)) ? 1 : 0);
+	return ((n & (1 << i)) ? 1 : 0);
 }
 
