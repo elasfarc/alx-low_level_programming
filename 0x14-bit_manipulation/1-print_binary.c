@@ -25,7 +25,7 @@ void print_binary(unsigned long int n)
 			_putchar(bit + '0');
 	}
 
-	if(!is_first_one_bit)
+	if (!is_first_one_bit)
 		_putchar('0');
 }
 
