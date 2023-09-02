@@ -26,6 +26,6 @@ int get_endianness(void)
 		ms_bit_start--;
 	}
 
-	return (is_big_endian);
+	return (!is_big_endian);
 }
 
