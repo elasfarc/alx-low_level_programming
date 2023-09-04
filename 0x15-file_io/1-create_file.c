@@ -47,7 +47,7 @@ int create_file(const char *filename, char *text_content)
 
 int _str_len(char *s)
 {
-	return (*(s + 0) == '\0'
+	return (!s || *(s + 0) == '\0'
 		? 0
 		: 1 + _str_len(s + 1));
 }
