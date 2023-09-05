@@ -93,7 +93,6 @@ cp_t *cp_file(char *from, char *to)
 int main(int argc, char **argv)
 {
 	cp_t *cp;
-	int code;
 
 	if (argc != 3)
 	{
@@ -102,20 +101,23 @@ int main(int argc, char **argv)
 	}
 
 	cp = cp_file(argv[1], argv[2]);
-	code = cp->code;
 
-	if (!cp || code == 1)
+	if (!cp || cp->code == 1)
 		dprintf(2, "Error: allocating memory\n");
-	if (code == 98)
+	if (cp->code == 98)
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-	if (code == 99)
+	if (cp->code == 99)
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
-	if (code == 100)
+	if (cp->code == 100)
 		dprintf(2, "Error: Can't close fd %d\n", cp->fd1 > -1 ? cp->fd1 : cp->fd2);
 
 	clean(cp);
-	if (code != 0)
-		exit(code);
+
+	if (cp->code != 0)
+	{
+		printf("about to exit code -> %d\n", cp->code);
+	}
+		exit(cp->code);
 
 	return (0);
 }
