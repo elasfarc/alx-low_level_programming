@@ -19,10 +19,12 @@ char *_strchr(char *s, char c)
 		return (NULL);
 
 	for (i = 0; s[i]; i++)
-		if (s[i] == c || (s[i + 1] == c && c == '\0'))
+	{
+		if (s[i] == c)
 			return (s + i);
-
-
+		if (s[i + 1] == c && c == '\0')
+			return s + i + 1;
+	}
 
 	return (NULL);
 }
