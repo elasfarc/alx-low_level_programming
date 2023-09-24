@@ -1,4 +1,3 @@
-
 /**
  * _memcpy - copies memory area.
  * @dest: copies to
@@ -15,8 +14,8 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 		return (dest);
 
 	for (i = 0; i < n; i++)
-		*((unsigned int *)dest + i) = *((unsigned int *)src + i);
+		*(((char *)dest) + i) = *(((char *)src) + i);
+		/*((char *)dest)[i] = ((char *)src)[i];*/
 
 	return (dest);
 }
-
