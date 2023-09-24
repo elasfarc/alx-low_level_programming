@@ -2,7 +2,7 @@
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	size_t i, src_len;
+	int i, src_len;
 
 	if (!dest)
 		return (NULL);
