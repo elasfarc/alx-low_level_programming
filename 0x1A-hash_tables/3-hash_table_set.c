@@ -20,7 +20,7 @@ int upsert_hash_node(const char *key, const char *value, hash_node_t **head);
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int hash_code;
-	hash_node_t **head, *new_node;
+	hash_node_t **head;
 
 
 	if (!ht || !ht->array || !key || !*(key))
@@ -56,9 +56,12 @@ hash_node_t *create_hash_node(const char *key, const char *value)
 
 	if (node == NULL || !k_dup || !v_dup)
 	{
-		node ? free(node) : (void *)0;
-		k_dup ? free(k_dup) : (void *)0;
-		v_dup ? free(v_dup) : (void *)0;
+		if (node)
+			free(node);
+		if (k_dup)
+			free(k_dup);
+		if (v_dup)
+			free(v_dup);
 		return (NULL);
 	}
 
