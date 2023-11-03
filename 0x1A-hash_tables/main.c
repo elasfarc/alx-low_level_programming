@@ -13,6 +13,8 @@ int main(void)
 	shash_table_t *ht;
 
 	ht = shash_table_create(1024);
+	shash_table_print(ht);
+	shash_table_set(ht, "mentioner", "b1");
 	shash_table_set(ht, "y", "0");
 	shash_table_print(ht);
 	shash_table_set(ht, "j", "1");
@@ -22,6 +24,7 @@ int main(void)
 	shash_table_set(ht, "b", "3");
 	shash_table_print(ht);
 	shash_table_set(ht, "z", "4");
+	shash_table_set(ht, "maentioner", "b2");
 	shash_table_print(ht);
 	shash_table_set(ht, "n", "5");
 	shash_table_print(ht);
@@ -29,6 +32,11 @@ int main(void)
 	shash_table_print(ht);
 	shash_table_set(ht, "m", "7");
 	shash_table_print(ht);
+	printf("\n===============>\n");
+	shash_table_set(ht, "h", "Bob");
+	shash_table_set(ht, "hetairas", "Bob");
+	shash_table_print(ht);
+	printf("\n===============>\n");
 	shash_table_print_rev(ht);
 	shash_table_delete(ht);
 	return (EXIT_SUCCESS);

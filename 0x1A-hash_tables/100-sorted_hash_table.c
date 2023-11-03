@@ -66,7 +66,7 @@ shash_node_t *shash_table_get_node(const shash_table_t *ht, const char *key)
 	head = ht->array[hash_code];
 
 	for (current = head; current; current = current->next)
-		if (strcmp(current->key, key))
+		if (strcmp(current->key, key) == 0)
 			return (current);
 	return (NULL);
 }
