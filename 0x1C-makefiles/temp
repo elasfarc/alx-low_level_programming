@@ -1,9 +1,7 @@
-one = one ${later_variable}
-# Simply expanded variable. This will not print "later" below
-two := two ${later_variable}
-
-later_variable = later
+foo := $(if this-is-not-empty,then!,else!)
+empty :=
+bar := $(if $(empty),then!,else!)
 
 all:
-	echo $(one)
-	echo $(two)
+	@echo $(foo)
+	@echo $(bar)

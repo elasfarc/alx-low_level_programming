@@ -5,9 +5,9 @@ NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
 
+all: $(if $(realpath m.h), $(OBJ),)
+	$(if $(realpath m.h), $(CC) $(OBJ) -o $(NAME),)
 
-all: $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
 
 base_clean = $(RM) $(1)
 
